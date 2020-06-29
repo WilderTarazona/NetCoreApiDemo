@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Confluent.Kafka;
 using Demo.Application.Contracts.Responses;
+using Demo.Application.Contracts;
 using Demo.Application.Interfaces.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -11,7 +12,7 @@ using Newtonsoft.Json;
 
 namespace Demo.API.Controllers.V1
 {
-    [Route("api/[controller]")]
+    //[Route("api/[controller]")]
     [ApiController]
     public class TodoController : ControllerBase
     {
@@ -23,13 +24,13 @@ namespace Demo.API.Controllers.V1
             _todoService = todoService;
             _config = config;
         }
-        [HttpGet]
+        [HttpGet(ApiRoutes.Todos.GetAll)]
         public async Task<ActionResult<List<TodoResponse>>> GetAll()
         {
             var post = await _todoService.ListAsync();
             return post.ToList();
         }
-        [HttpPost("send")]
+        [HttpGet(ApiRoutes.Todos.Send)]
         public async Task<ActionResult> Get([FromBody] TodoResponse todo)
         {
             try
@@ -38,7 +39,7 @@ namespace Demo.API.Controllers.V1
                 using (var producer = new ProducerBuilder<Null, string>(_config).Build())
                 {
                     await producer.ProduceAsync("temp-topic-two", new Message<Null, string> { Value = serializedTodo });
-                    // producer.Flush(TimeSpan.FromSeconds(10));
+                    producer.Flush(TimeSpan.FromSeconds(10));
                     return Ok(true);
                 }
             }
@@ -49,7 +50,7 @@ namespace Demo.API.Controllers.V1
 
         }
 
-        //[HttpGet("{id:int}")]
+        //[HttpGet("{id:int:min(1)}")]
         //public async Task<ActionResult<TaskDto>> Get(int id)
         //{
         //    return await Mediator.Send(new GetTaskByIdQuery { Id = id });

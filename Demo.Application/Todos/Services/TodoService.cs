@@ -21,7 +21,7 @@ namespace Demo.Application.Todos.Services
         public async Task<List<TodoResponse>> ListAsync()
         {
             var result = await _unitOfWork.Todos.GetAll();
-            return _mapper.Map<List<TodoResponse>>(result.ToList());
+            return _mapper.Map<List<TodoResponse>>(result);
         }
     }
 }
