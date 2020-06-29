@@ -5,9 +5,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Contracts\V1\Requests\" />
     <Folder Include="Helpers\" />
     <Folder Include="MappingProfiles\" />
+    <Folder Include="Services\" />
     <Folder Include="Validators\" />
     <Folder Include="Options\" />
     <Folder Include="SwaggerExamples\" />

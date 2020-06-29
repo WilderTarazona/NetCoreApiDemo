@@ -6,7 +6,7 @@ namespace Demo.Application.Todos.Validators
     {
         //public CreateTodoRequestValidator()
         //{
-        //    RuleFor(x => x.TagName)
+        //    RuleFor(x => x.Name)
         //        .NotEmpty()
         //        .Matches("^[a-zA-Z0-9 ]*$");
         //}
