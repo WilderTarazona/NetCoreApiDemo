@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
-namespace Demo.API.Controllers
+namespace Demo.API.Controllers.V1
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -46,7 +46,7 @@ namespace Demo.API.Controllers
             {
                 throw;
             }
-            
+
         }
 
         //[HttpGet("{id:int}")]

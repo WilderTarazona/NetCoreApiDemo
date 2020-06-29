@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Commons\" />
     <Folder Include="Helpers\" />
     <Folder Include="MappingProfiles\" />
     <Folder Include="Services\" />
