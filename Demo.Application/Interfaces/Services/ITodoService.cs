@@ -10,6 +10,7 @@ namespace Demo.Application.Interfaces.Services
     public interface ITodoService
     {
         Task<List<TodoResponse>> ListAsync();
+        Task<TodoResponse> GetAsync(int id);
         //Task<TodoResponse> SaveAsync(Product product);
         //Task<TodoResponse> UpdateAsync(int id, Product product);
         //Task<TodoResponse> DeleteAsync(int id);

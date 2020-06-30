@@ -50,6 +50,13 @@ namespace Demo.API.Controllers.V1
 
         }
 
+        [HttpGet(ApiRoutes.Todos.Get)]
+        public async Task<TodoResponse> Get([FromRoute] int id)
+        {
+            var result = await _todoService.GetAsync(id);
+            return result;
+        }
+
         //[HttpGet("{id:int:min(1)}")]
         //public async Task<ActionResult<TaskDto>> Get(int id)
         //{

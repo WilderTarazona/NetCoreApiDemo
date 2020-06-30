@@ -23,5 +23,11 @@ namespace Demo.Application.Todos.Services
             var result = await _unitOfWork.Todos.GetAll();
             return _mapper.Map<List<TodoResponse>>(result);
         }
+
+        public async Task<TodoResponse> GetAsync(int id)
+        {
+            var result = await _unitOfWork.Todos.Get(id);
+            return _mapper.Map<TodoResponse>(result);
+        }
     }
 }

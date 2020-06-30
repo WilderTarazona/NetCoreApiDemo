@@ -11,7 +11,7 @@
         public static class Todos
         {
             public const string GetAll = Base + "/todos";
-            public const string Get = Base + "/todos/{postId}";
+            public const string Get = Base + "/todos/{id}";
             public const string Create = Base + "/todos";
             public const string Update = Base + "/todos/{postId}";
             public const string Delete = Base + "/todos/{postId}";
